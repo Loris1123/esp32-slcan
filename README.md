@@ -2,7 +2,7 @@
 
 ESP32 firmware, to transform an ESP32 Devkit into a CAN interface for slcan.
 
-Fork of https://github.com/Loris1123/esp32-slcan.
+Fork of https://github.com/mintynet/esp32-slcan.
 Thanks @mintynet for the work!
 Bluetooth and display overhead was removed.
 
