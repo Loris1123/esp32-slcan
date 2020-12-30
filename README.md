@@ -1,22 +1,36 @@
 # esp32-slcan
-This repository has an arduino sketch to create a slcan USB/Bluetooth device using the ESP32, SN65HVD230 CAN transceiver and 128x32 SSD1306.
-<br>Requires the use of the following Arduino libraries
-<br><br>https://github.com/nhatuan84/arduino-esp32-can-demo
-<br>Adafruit_GFX
-<br>Adafruit_SSD1306
 
-Current "ESP32 ESP-WROOM-32 Wemos D1" uses CP2102 USB to TTL which is limited to 500kbps
-Schematic for the device to follow
+ESP32 firmware, to transform an ESP32 Devkit into a CAN interface for slcan.
 
-Bill of materials is in "esp32-slcan BOM.txt"
+Fork of https://github.com/Loris1123/esp32-slcan.
+Thanks @mintynet for the work!
+Bluetooth and display overhead was removed.
 
-Diagram that shows built insides and required wiring
-![Wiriing](esp32-slcan.jpg)
-Can PCB without screen
-![Can pcb](can-pcb.jpg)
-Original with screen
-![Outside](outside.jpg)
-Inside original a
-![Inside above](inside_above.jpg)
-Inside original b
-![Inside under](inside_under.jpg)
+# Requirements
+Requires the use of the Arduino library https://github.com/nhatuan84/arduino-esp32-can-demo
+
+# Usage
+
+For sending and recieving packets in a basic manner, the interface can be used with a direct serial connection.
+For more complex tasks, the slcan drivers can be used, what makes the interface compatible with many other tools.
+
+## Serial Connection
+
+Use your favorite terminal emulator, such as picocom.
+
+    picocom -b 500000 /dev/ttyUSB0
+
+Then type `h<ENTER>` to view the help text.
+
+## slcan
+
+Install can-utils (https://github.com/linux-can/can-utils)
+
+    sudo slcan_attach -f -s6 -o /dev/ttyUSB0
+    sudo slcand -o -c -s6 /dev/ttyUSB0 -S 500000
+    sudo ip link set slcan0 up
+
+    # Test if the interface is working
+    candump slcan0
+
+
