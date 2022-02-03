@@ -2,12 +2,24 @@
 
 ESP32 firmware, to transform an ESP32 Devkit into a CAN interface for slcan.
 
-Fork of https://github.com/Loris1123/esp32-slcan.
-Thanks @mintynet for the work!
+Fork of https://github.com/mintynet/esp32-slcan
 Bluetooth and display overhead was removed.
+Libraries used from https://github.com/nhatuan84/arduino-esp32-can-demo
 
-# Requirements
-Requires the use of the Arduino library https://github.com/nhatuan84/arduino-esp32-can-demo
+Thanks @mintynet and @nhatuan84 for the work!
+
+# Installation
+
+## Software
+Use Arduino SDK to upload the project file to the ESP32.
+
+## Hardware
+Connect your CAN tranceiver to your ESP32.
+
+ - GPIO4 -> CAN Tranceiver TX
+ - GPIO5 -> CAN Tranceiver RX
+
+ Also don't forget GND and 3.3V of course.
 
 # Usage
 

@@ -1,5 +1,5 @@
-#include <ESP32CAN.h>           // v1.0.0     from https://github.com/nhatuan84/arduino-esp32-can-demo
-#include <CAN_config.h>         // as above
+#include "ESP32CAN.h"           // v1.0.0     from https://github.com/nhatuan84/arduino-esp32-can-demo
+#include "CAN_config.h"         // as above
 
 // CURRENTLY ESP32 Dev Module Board Definition
 // PIN 4  CANTX   (Connect to TX pin of tranceiver)
